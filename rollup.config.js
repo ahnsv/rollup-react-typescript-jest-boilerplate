@@ -6,6 +6,7 @@ import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import postcss from 'rollup-plugin-postcss';
 import uglify from 'rollup-plugin-uglify'
+import html from 'rollup-plugin-bundle-html'
 
 const dev = 'development';
 const prod = 'production';
@@ -32,6 +33,11 @@ const plugins = [
             ],
         },
     }),
+    html({
+        template: './index.html',
+        dest: 'dist',
+        filename: 'index.html'
+    }),
     postcss({
         extract: true,
         sourcemap: true
@@ -42,10 +48,13 @@ if (env === dev) {
     // For playing around with just frontend code the serve plugin is pretty nice.
     // We removed it when we started doing actual backend work.
     plugins.push(serve({
-        port: 3000,
+        port: 8082,
         historyApiFallback: true,
+        open: true,
+        openPage: '/index.html',
+        contentBase: ['dist']
     }));
-    plugins.push(livereload());
+    // plugins.push(livereload());
 }
 
 if (env === prod) {
@@ -54,9 +63,13 @@ if (env === prod) {
 export default {
     plugins,
     external: ['react'],
-    input: './src/index.tsx',
+    input: './src/index.ts',
     output: {
+        globals: {
+            'react': 'React'
+        },
+        name: 'bundle.js',
         file: './dist/bundle.js',
         format: 'iife'
-    }
+    },
 }
