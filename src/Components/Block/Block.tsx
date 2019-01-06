@@ -12,7 +12,7 @@ class Block extends React.Component<BlockProps, BlockState> {
     public state = {};
     public render() {
         return (
-            <h1>hi</h1>
+            <h1>hi livereload</h1>
         );
     }
 }
