@@ -1,0 +1,1 @@
+{"map":"{\"version\":3,\"file\":\"index.js\",\"sourceRoot\":\"\",\"sources\":[\"../../src/index.tsx\"],\"names\":[],\"mappings\":\"AAAA,OAAO,GAAG,MAAM,kBAAkB,CAAC;AAEnC,eAAe,GAAG,CAAC\"}","code":"import App from \"./Components/App\";\r\nexport default App;\r\n//# sourceMappingURL=index.js.map"}
