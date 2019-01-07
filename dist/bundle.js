@@ -21977,7 +21977,7 @@
 	        return _this;
 	    }
 	    Block.prototype.render = function () {
-	        return (react.createElement("h1", null, "hi"));
+	        return (react.createElement("h1", null, "hi livereload"));
 	    };
 	    return Block;
 	}(react.Component));

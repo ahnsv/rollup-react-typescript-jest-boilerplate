@@ -56,7 +56,7 @@ if (env === dev) {
         openPage: '/index.html',
         contentBase: ['dist']
     }));
-    // plugins.push(livereload());
+    plugins.push(livereload());
 }
 
 if (env === prod) {
